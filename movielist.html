@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQ2</title>
+    <script src="js/jg.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jq2.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">My Favourite Movies</h1>
+<br>
+        <span>Title: </span>
+        <input type="text" id="Movie" placeholder="Movie Title">
+        <span>Rating</span>
+        <input type="text" id="Rating" placeholder="Rate the movie from 1-10">
+
+        <button id="Add">Add Movie</button>
+
+        <table id="datatable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Rating</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+
+    </div>
+
+<script>
+            $("#Add").click(function(){
+            var Title = $("#Movie").val();
+            var Rating = $("#Rating").val();
+            var markup = "<tr><td>" + Title + "</td><td>" + Rating + "</td></td>" + "</td><td><button type='button' class='delete-row'>Delete Row</button></td></tr>";
+            $("table tbody").append(markup);
+
+        });
+
+        $(document).on( "click", ".delete-row", function() {
+            $(this).parents("tr").remove();
+});
+</script>
+
+</body>
+</html>
